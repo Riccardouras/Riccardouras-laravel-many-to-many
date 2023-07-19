@@ -22,6 +22,13 @@
             <strong>{{ $message }}</strong>
         </span>
     @enderror
+    <h2>Tecnologie utilizzate:</h2>
+    <ul>
+        @foreach ($project->technologies as $technology)
+            <li>{{ $technology->name }}</li>
+        @endforeach
+    </ul>
+
     <input class="form-control mt-4 btn btn-primary" type="submit" value="Invia">
 </form>
 @endsection

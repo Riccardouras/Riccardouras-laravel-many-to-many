@@ -66,6 +66,13 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
 
+                <label for="technologies">Tecnologie:</label><br>
+                @foreach ($technologies as $technology)
+                    <input type="checkbox" name="technologies[]" value="{{ $technology->id }}" {{ isset($project) && $project->technologies->contains($technology->id) ? 'checked' : '' }}>
+                    {{ $technology->name }}<br>
+                @endforeach
+            
+            
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

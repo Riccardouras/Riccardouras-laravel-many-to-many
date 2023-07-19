@@ -21,8 +21,18 @@
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger" onclick="confirmDelete();">Delete</button>
-        </form>
+            @if ($project->technologies->count() > 0)
+                <h2>Tecnologie utilizzate:</h2>
+                <ul>
+                    @foreach ($project->technologies as $technology)
+                        <li>{{ $technology->name }}</li>
+                    @endforeach
+                </ul>
+            @endif
+
+            </form>
         <button class="btn btn-warning"><a class="text-white" href="{{ route('admin.projects.edit', $project->id)}}">Edit</a>
+
     </div>
 </div>
 
