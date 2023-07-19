@@ -12,5 +12,5 @@ return [
         'Augmented Reality',
         'Internet of Things (IoT)',
         'Robotics',
-    ]
+    ],
 ];
