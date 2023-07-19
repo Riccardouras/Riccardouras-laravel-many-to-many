@@ -22,12 +22,10 @@
             <strong>{{ $message }}</strong>
         </span>
     @enderror
-    <h2>Tecnologie utilizzate:</h2>
-    <ul>
-        @foreach ($project->technologies as $technology)
-            <li>{{ $technology->name }}</li>
-        @endforeach
-    </ul>
+    < @foreach ($technologies as $technology)
+        <input type="checkbox" name="technologies[]" value="{{ $technology->id }}" {{ isset($project) && $project->technologies->contains($technology->id) ? 'checked' : '' }}>
+            {{ $technology->name }}<br>
+    @endforeach
 
     <input class="form-control mt-4 btn btn-primary" type="submit" value="Invia">
 </form>
