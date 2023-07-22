@@ -26,7 +26,7 @@ class StoreNomeModelloRequest extends FormRequest
         return [
             'title' => 'required|min:3|max:30',
             'content' => 'nullable|min:10|max:1000',
-            'image' => 'nullable|max:100',
+            'image' => 'nullable',
             'type_id' => 'nullable|exists:types,id'
         ];
     }

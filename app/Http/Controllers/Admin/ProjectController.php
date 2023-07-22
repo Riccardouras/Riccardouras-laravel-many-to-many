@@ -10,6 +10,7 @@ use App\Models\Type;
 use App\Models\Technology;
 use App\Http\Requests\StoreNomeModelloRequest;
 use App\Http\Requests\UpdateType;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -47,7 +48,12 @@ class ProjectController extends Controller
      */
     public function store(StoreNomeModelloRequest $request)
     {
+
         $data = $request->validated();
+
+        $img_path = Storage::put("uploads", $data['image']);
+        
+        $data['image'] = $img_path;
 
         $newProject = new Project();
         $newProject->fill($data);

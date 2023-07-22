@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('page-title', 'Modifica')
 @section('content')
-<form action="{{ route('admin.projects.update', ['project' => $project->id]) }}" method="post">
+<form action="{{ route('admin.projects.update', ['project' => $project->id]) }}" method="post" enctype="multipart/form-data">
     @csrf
     @method("PUT")
 
